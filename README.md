@@ -4,7 +4,7 @@
 
 ### Création de branche
 
-Création d'une branche et basculement sur cette dernière dans le repo Zappy :
+Création d'une branche et basculement sur cette dernière dans le repo Indi :
 
 ``` git checkout -b <nom de la branche> ```
 
@@ -14,8 +14,8 @@ Création de cette branche dans le repo epitech :
 
 Mise à jour des branches distantes (dans le repo epitech) :
 
-``` git fetch Zappy ```
+``` git fetch Indi ```
 
-Création du suivi de la branche distante (repo Zappy) :
+Création du suivi de la branche distante (repo Indi) :
 
-``` git branch --set-upstream-to=Zappy/<nom de la branche> <nom de la branche> ```
+``` git branch --set-upstream-to=Indi/<nom de la branche> <nom de la branche> ```
