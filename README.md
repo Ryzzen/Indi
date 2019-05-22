@@ -19,3 +19,7 @@ Mise à jour des branches distantes (dans le repo epitech) :
 Création du suivi de la branche distante (repo Indi) :
 
 ``` git branch --set-upstream-to=Indi/<nom de la branche> <nom de la branche> ```
+
+## Norme de commit
+
+[ACTION] : Description
