@@ -22,7 +22,7 @@ Pour utiliser le type d'authentification ssh :
 
  Par défaut, le mode d'authentification se fait en entrant ses indentifiants à chaque actions, pour utilisé sa clé ssh, il faut changé l'addresse du remote de son repo (exemple ici pour le repo Indi) :
 
- ``` git remote set-url Indi git.github.com:Ryzzen/Indi.git ```
+ ``` git remote set-url origin git.github.com:Ryzzen/Indi.git ```
 
 ## Instructions de push
 
