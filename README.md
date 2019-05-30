@@ -36,6 +36,8 @@ Création de cette branche dans le repo epitech :
 
 ``` git checkout -b <nom de la branche> ```
 
+(N'oubliez pas de push pour que la branche soit bien créé)
+
 Mise à jour des branches distantes (dans le repo epitech) :
 
 ``` git fetch Indi ```
