@@ -46,6 +46,13 @@ Création du suivi de la branche distante (repo Indi) :
 
 ``` git branch --set-upstream-to=Indi/<nom de la branche> <nom de la branche> ```
 
+### Faire un push
+
+``` git add <nom du ficher> ```
+``` git commit -m "<message>" ```
+``` git push origin <branche> ```
+``` git push Indi <branche> ```
+
 ## Norme de commit
 
 [ACTION] : Description
