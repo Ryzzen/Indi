@@ -1,2 +1,6 @@
-.vscode
+build/
+.vscode/
+bin/*
+!/bin/Irrlicht.dll
+bomberman
 vgcore.*
