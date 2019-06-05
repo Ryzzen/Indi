@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 build/
 .vscode/
 bin/*
 !/bin/Irrlicht.dll
 bomberman
 vgcore.*
-=======
-.vscode
-vgcore*
->>>>>>> c96b830019d7cde42dc06741983829c846f1986b
