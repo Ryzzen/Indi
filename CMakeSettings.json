@@ -1,0 +1,8 @@
+﻿{
+  "configurations": [
+    {
+      "name": "BuildRoot",
+      "buildRoot": "${workspaceRoot}/build/"
+    }
+  ]
+}
