@@ -20,7 +20,8 @@ IF (Irrlicht_FOUND)
 
     file(GLOB
         SRCS
-            src/main.cpp)
+            src/main.cpp
+			src/event.hpp)
 
     add_executable(
             bomberman

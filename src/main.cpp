@@ -85,6 +85,7 @@ losing platform independence then.
 /*
 This is the main method. We can now use main() on every platform.
 */
+
 int main()
 {
     /*
