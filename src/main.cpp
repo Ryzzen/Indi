@@ -85,8 +85,13 @@ losing platform independence then.
 /*
 This is the main method. We can now use main() on every platform.
 */
+
+#include "event.hpp"
+
 int main()
 {
+	//Game::Event e;
+	//e.setAction(Game::NO_ACTION, irr::KEY_KEY_H);
     /*
     The most important function of the engine is the createDevice()
     function. The IrrlichtDevice is created by it, which is the root

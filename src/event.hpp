@@ -5,8 +5,8 @@
 ** indi
 */
 
-#ifndef event
-    #define event
+#ifndef EVENT
+    #define EVENT
 
 #include <vector>
 #include <string>
@@ -16,6 +16,7 @@
 namespace Game {
 
     enum e_action {
+	NO_ACTION,
 	SELECT,
     P1_MV_RIGHT,
     P1_MV_LEFT,
@@ -57,11 +58,14 @@ namespace Game {
 			{irr::KEY_KEY_S, P2_MV_DOWN},
 			{irr::KEY_SPACE, P2_PUT_BOMB}
 		};
+
     public:
         Game::Event();
 
+		bool isActionMapped(e_action action) { return (_keyMap.count(action) > 0 ? true : false); }
+		bool isKeyMapped(int key) { return (_keyMapReversed.count(key) > 0 ? true : false); }
 		void setAction(e_action action, int key) { _keyMap[action] = key; _keyMapReversed[key] = action; }
-		e_action getAction(int key) { return _keyMapReversed[key]; }
+		e_action getAction(int key) { return (isKeyMapped(key) ? _keyMapReversed[key] : NO_ACTION) ; }
         std::vector<e_action> getActions(std::vector<int> kb) {
 			std::vector<e_action> ret;
 			for (auto key : kb)
@@ -71,4 +75,4 @@ namespace Game {
     };
 }
 
-#endif /* !event */
+#endif /* !EVENT */
