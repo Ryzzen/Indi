@@ -60,8 +60,6 @@ namespace Game {
 		};
 
     public:
-        Game::Event();
-
 		bool isActionMapped(e_action action) { return (_keyMap.count(action) > 0 ? true : false); }
 		bool isKeyMapped(int key) { return (_keyMapReversed.count(key) > 0 ? true : false); }
 		void setAction(e_action action, int key) { _keyMap[action] = key; _keyMapReversed[key] = action; }
