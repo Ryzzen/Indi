@@ -18,8 +18,8 @@ namespace Game {
 		float _speed;
 		int _firePower;
 		bool _softBlockPass;
-		Game::e_animation _animationState = Game::ANIM_IDLE;
 
+#pragma region Constructor / Destructor
 		Bomberman(std::string type, std::pair<float, float> position = std::pair<float, float>(0, 0), std::string meshPath, std::string texturePath, int bombs = 0, float speed = 0.1, int firePower = 1, bool softBlockPass = false)
 			: _position(position),
 			_type(type),
@@ -31,7 +31,18 @@ namespace Game {
 			_texturePath(texturePath)
 		{}
 		~Bomberman();
+#pragma endregion
+
+#pragma region Moves
+		moveRight();
+		moveLeft();
+		moveUp();
+		moveDown();
+#pragma endregion
+
+#pragma region Actions
 		putBomb();
+#pragma endregion
 	};
 }
 
