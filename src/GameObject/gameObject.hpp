@@ -17,11 +17,11 @@ namespace Game {
     public:
         std::string _type;
         std::pair<float, float> _position;
+		std::string _meshPath = NULL;
+		std::string _texturePath = NULL;
 
-        GameObject(std::string type, std::pair<float, float> position)
-            : _position(position),
-            _type(type)
-        {}
+		virtual GameObject();
+		virtual ~GameObject();
     };
 
 }
