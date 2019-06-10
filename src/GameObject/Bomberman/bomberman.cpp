@@ -14,5 +14,9 @@ Game::Bomberman::~Bomberman()
 
 Game::Bomberman::putBomb()
 {
+	;
+}
 
+Game::Bomberman::moveRight() {
+	;
 }
