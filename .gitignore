@@ -3,5 +3,5 @@ build/
 .vs/
 bin/*
 !/bin/Irrlicht.dll
-bomberman
+./bomberman
 vgcore.*
