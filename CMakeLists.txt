@@ -21,7 +21,13 @@ IF (Irrlicht_FOUND)
     file(GLOB
         SRCS
             src/main.cpp
-			src/event.hpp)
+			src/event.hpp
+            src/IndiReceiver/IndiReceiver.hpp
+            src/IndiReceiver/IndiReceiver.cpp
+            src/Menu/menu.hpp
+            src/Menu/menu.cpp
+            src/Keyboard/Keyboard.hpp
+            src/Keyboard/Keyboard.cpp)
 
     add_executable(
             bomberman
