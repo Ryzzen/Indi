@@ -18,6 +18,7 @@ namespace Game {
 	constexpr auto BOMB = "bomb";
 	constexpr auto WALL = "wall";
 	constexpr auto SOFT_WALL = "soft_wall";
+	constexpr auto EXPLOSION = "explosion";
 	constexpr auto PW_SPEED = "power_up_speed";
 	constexpr auto PW_FIRE = "power_up_fire";
 	constexpr auto PW_SFT_WALL_PASS = "power_up_soft_wall_pass";
@@ -29,7 +30,17 @@ namespace Game {
 		ANIM_DYING,
 	};
 
-	class GameObject {
+	class IGameObject {
+	public:
+		virtual void update() = 0;
+
+		virtual void moveRight() = 0;
+		virtual void moveLeft() = 0;
+		virtual void moveUp() = 0;
+		virtual void moveDown() = 0;
+	};
+
+	class GameObject : public IGameObject {
 	public:
 		std::string _type;
 		std::pair<float, float> _position;
@@ -46,6 +57,13 @@ namespace Game {
 		{}
 
 		virtual ~GameObject() {}
+
+		void update() {}
+
+		void moveRight() {}
+		void moveLeft() {}
+		void moveUp() {}
+		void moveDown() {}
 	};
 
 }

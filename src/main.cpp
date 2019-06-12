@@ -95,9 +95,9 @@ int main()
 	std::vector<Game::GameObject> objects(1, Game::GameObject(Game::P1, "a", "z"));
     Game::Scene scene(objects, 1, 1);
 
-	std::cout << scene._map.size() << " " << scene._map[0].size() << " " << *scene._map[0][0]._objects.begin() << std::endl;
-	std::unique_ptr<Game::GameObject> &obj = scene.getObjectById(*scene._map[0][0]._objects.begin());
-	std::cout << obj->_type << std::endl;
+	//std::cout << scene._map.size() << " " << scene._map[0].size() << " " << *scene._map[0][0]._objects.begin() << std::endl;
+	//std::unique_ptr<Game::GameObject> &obj = scene.getObjectById(*scene._map[0][0]._objects.begin());
+	//std::cout << obj->_type << std::endl;
 
     /*
     The most important function of the engine is the createDevice()

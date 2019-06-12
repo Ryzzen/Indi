@@ -15,9 +15,12 @@
 #include <memory>
 #include <random>
 #include <limits>
+#include "../event.hpp"
 #include "gameObject.hpp"
 
 namespace Game {
+
+	typedef void (*objectActionFunction)();
 
 	class Ground {
 	public:
@@ -64,11 +67,18 @@ namespace Game {
 		std::unique_ptr<Game::GameObject> &getObjectById(unsigned int id) { return (_gameObjetcs[id]); }
 
 		void moveObject(unsigned int id, std::pair<float, float> offset);
-		std::vector<std::unique_ptr<Game::GameObject>&> getPosistionObjects(std::pair<float, float> position);
+		std::vector<unsigned int> getPosistionObjectsIds(std::pair<float, float> position) const;
+		std::vector<std::string> getPosistionObjectsTypes(std::pair<float, float> position);
+
+		void update();
+
+		void takeAction(Game::e_action action);
+		void subscribeToAction(Game::e_action action, Game::objectActionFunction f);
 
 	private:
 		std::map<unsigned int, std::unique_ptr<Game::GameObject>> _gameObjetcs;
 		std::vector<std::vector<Game::Ground>> _map;
+		std::map<Game::e_action, objectActionFunction> _actionHandler;
 		unsigned int _width;
 		unsigned int _height;
 
