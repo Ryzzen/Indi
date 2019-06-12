@@ -86,8 +86,19 @@ losing platform independence then.
 This is the main method. We can now use main() on every platform.
 */
 
+#include "GameObject/GameObject.hpp"
+#include "GameObject/Scene.hpp"
+#include <iostream>
+
 int main()
 {
+	std::vector<Game::GameObject> objects(1, Game::GameObject(Game::P1, "a", "z"));
+    Game::Scene scene(objects, 1, 1);
+
+	std::cout << scene._map.size() << " " << scene._map[0].size() << " " << *scene._map[0][0]._objects.begin() << std::endl;
+	std::unique_ptr<Game::GameObject> &obj = scene.getObjectById(*scene._map[0][0]._objects.begin());
+	std::cout << obj->_type << std::endl;
+
     /*
     The most important function of the engine is the createDevice()
     function. The IrrlichtDevice is created by it, which is the root
@@ -133,6 +144,7 @@ int main()
     'L' in front of the string. The Irrlicht Engine uses wide character
     strings when displaying text.
     */
+
     device->setWindowCaption(L"Hello World! - Irrlicht Engine Demo");
 
     /*
@@ -150,6 +162,8 @@ int main()
     The text is placed at the position (10,10) as top left corner and
     (260,22) as lower right corner.
     */
+
+
     guienv->addStaticText(L"Hello World! This is the Irrlicht Software renderer!",
         rect<s32>(10, 10, 260, 22), true);
 

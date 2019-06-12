@@ -14,13 +14,15 @@
 namespace Game {
 	class Bomberman : public Game::GameObject {
 	public:
+#pragma region Attributs
 		int _bombs;
 		float _speed;
 		int _firePower;
 		bool _softBlockPass;
+#pragma endregion
 
 #pragma region Constructor / Destructor
-		Bomberman(std::string type, std::pair<float, float> position = std::pair<float, float>(0, 0), std::string meshPath, std::string texturePath, int bombs = 0, float speed = 0.1, int firePower = 1, bool softBlockPass = false)
+		Bomberman(std::string type, std::string meshPath, std::string texturePath, std::pair<float, float> position = std::pair<float, float>(0, 0), int bombs = 0, float speed = 0.1, int firePower = 1, bool softBlockPass = false)
 			: _position(position),
 			_type(type),
 			_bombs(bombs),
