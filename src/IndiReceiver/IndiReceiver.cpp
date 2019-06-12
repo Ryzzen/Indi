@@ -44,5 +44,23 @@ bool IndiReceiver::OnEvent(const SEvent& event)
         keysState_[event.KeyInput.Key] = event.KeyInput.PressedDown;
         return true;
     }
+    if (event.GUIEvent.EventType == irr::gui::EGET_BUTTON_CLICKED)
+    {
+        s32 id = event.GUIEvent.Caller->getID();
+        switch (id)
+        {
+        case 1:
+            this->_playFunc(this->_menu);
+            break;
+        case 2:
+            this->_quitFunc();
+            break;
+        case 3:
+            this->_loadFunc(this->_menu);
+            break;
+        default:
+            break;
+        }
+    }
     return false;
 }

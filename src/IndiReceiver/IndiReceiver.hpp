@@ -10,6 +10,7 @@
 
 #include <vector>
 #include <irrlicht/irrlicht.h>
+#include "./../Menu/menu.hpp"
 
 using namespace irr;
 
@@ -19,8 +20,16 @@ public:
     virtual bool OnEvent(const SEvent& event);
     std::vector<int> getPressedKeys(void);
     std::vector<int> getUnpressedKeys(void);
+    void setMenu(MainMenu::Menu *my_menu) {this->_menu = my_menu;}
+    void setPlayFunc(void (*ptr)(MainMenu::Menu *)) {this->_playFunc = ptr;}
+    void setQuitFunc(void (*ptr)()) {this->_quitFunc = ptr;}
+    void setLoadFunc(void (*ptr)(MainMenu::Menu *)) {this->_loadFunc = ptr;}
 private:
+    MainMenu::Menu *_menu;
     std::vector<bool> keysState_;
+    void (*_playFunc)(MainMenu::Menu *);
+    void (*_quitFunc)();
+    void (*_loadFunc)(MainMenu::Menu *);
 };
 
 #endif
