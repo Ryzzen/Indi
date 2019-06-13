@@ -22,6 +22,8 @@ namespace Game {
 
 	typedef void (*objectActionFunction)();
 
+	Game::Scene scene = Game::Scene();
+
 	class Ground {
 	public:
 		std::list<unsigned int> _objects;
@@ -40,7 +42,8 @@ namespace Game {
 
 	class Scene {
 	public:
-		Scene(std::vector<Game::GameObject> objects = std::vector<Game::GameObject>(), unsigned int width = 15, unsigned int height = 15) {
+		Scene(std::vector<Game::GameObject> objects = std::vector<Game::GameObject>(), unsigned int width = 15, unsigned int height = 15)
+		{
 			_map = std::vector<std::vector<Ground>>(height, std::vector<Ground>(width, Ground()));
 
 			for (auto object : objects)
