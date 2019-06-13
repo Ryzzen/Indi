@@ -88,28 +88,28 @@ This is the main method. We can now use main() on every platform.
 
 #include "GameObject/Scene.hpp"
 #include "GameObject/GameObject.hpp"
-#include "GameObject//Bomberman/Bomberman.hpp"
+#include "GameObject/Bomberman/Bomberman.hpp"
 #include <iostream>
 
 int main()
 {
-	Game::scene.addObject(std::make_unique<Game::Bomberman>(Game::P1, "a", "z"));
-	std::vector<unsigned int> objIds = Game::scene.getPosistionObjectsIds(0, 0);
-	unsigned int id = objIds[0];
-	std::unique_ptr<Game::GameObject> &obj = Game::scene.getObjectById(id);
-	std::cout << obj->_type << std::endl;
-	Game::scene.moveObject(id, 1, 1);
-	std::cout << obj->_position.first << " " << obj->_position.second << std::endl;
-	std::vector<unsigned int> objIds2 = Game::scene.getPosistionObjectsIds(1, 1);
-	unsigned int id2 = objIds2[0];
-	std::unique_ptr<Game::GameObject> &obj2 = Game::scene.getObjectById(id2);
-	std::cout << obj2->_type << std::endl;
-	//Game::scene.removeObject(id2);
-	Game::scene.takeAction(Game::P1_MV_RIGHT);
+    Game::scene.addObject(std::make_unique<Game::Bomberman>(Game::P1, "a", "z"));
+    std::vector<unsigned int> objIds = Game::scene.getPosistionObjectsIds(0, 0);
+    unsigned int id = objIds[0];
+    std::unique_ptr<Game::GameObject> &obj = Game::scene.getObjectById(id);
+    std::cout << obj->_type << std::endl;
+    Game::scene.moveObject(id, 1, 1);
+    std::cout << obj->_position.first << " " << obj->_position.second << std::endl;
+    std::vector<unsigned int> objIds2 = Game::scene.getPosistionObjectsIds(1, 1);
+    unsigned int id2 = objIds2[0];
+    std::unique_ptr<Game::GameObject> &obj2 = Game::scene.getObjectById(id2);
+    std::cout << obj2->_type << std::endl;
+    //Game::scene.removeObject(id2);
+    Game::scene.takeAction(Game::P1_MV_RIGHT);
 
-	//std::cout << scene._map.size() << " " << scene._map[0].size() << " " << *scene._map[0][0]._objects.begin() << std::endl;
-	//std::unique_ptr<Game::GameObject> &obj = scene.getObjectById(*scene._map[0][0]._objects.begin());
-	//std::cout << obj->_type << std::endl;
+    //std::cout << scene._map.size() << " " << scene._map[0].size() << " " << *scene._map[0][0]._objects.begin() << std::endl;
+    //std::unique_ptr<Game::GameObject> &obj = scene.getObjectById(*scene._map[0][0]._objects.begin());
+    //std::cout << obj->_type << std::endl;
 
     /*
     The most important function of the engine is the createDevice()

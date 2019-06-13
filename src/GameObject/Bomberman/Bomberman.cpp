@@ -5,5 +5,5 @@
 ** indi
 */
 
-#include "bomberman.hpp"
+#include "Bomberman.hpp"
 
