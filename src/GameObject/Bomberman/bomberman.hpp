@@ -9,7 +9,7 @@
 	#define BOMBERMAN
 
 #include "../gameObject.hpp"
-#include <string>
+#include "../Scene.hpp"
 
 namespace Game {
 	class Bomberman : public Game::GameObject {
@@ -22,28 +22,31 @@ namespace Game {
 #pragma endregion
 
 #pragma region Constructor / Destructor
-		Bomberman(std::string type, std::string meshPath, std::string texturePath, std::pair<float, float> position = std::pair<float, float>(0, 0), int bombs = 0, float speed = 0.1, int firePower = 1, bool softBlockPass = false)
-			: _position(position),
-			_type(type),
+		Bomberman(std::string type, std::string meshPath, std::string texturePath, std::pair<float, float> position = std::make_pair(0.f, 0.f), int bombs = 0, float speed = 0.1, int firePower = 1, bool softBlockPass = false)
+			: Game::GameObject(type, meshPath, texturePath, position),
 			_bombs(bombs),
 			_speed(speed),
 			_firePower(firePower),
-			_softBlockPass(softBlockPass),
-			_meshPath(meshPath),
-			_texturePath(texturePath)
-		{}
-		~Bomberman();
+			_softBlockPass(softBlockPass)
+		{
+			Game::scene.subscribeToAction(Game::P1_MV_RIGHT, std::bind(&Game::GameObject::moveRight, this));
+		}
+		~Bomberman()
+		{
+			_animationState = Game::ANIM_DYING;
+			Game::scene.unsubscribeToAction(Game::P1_MV_RIGHT);
+		}
 #pragma endregion
 
 #pragma region Moves
-		moveRight();
-		moveLeft();
-		moveUp();
-		moveDown();
+		void moveRight() { std::cout << "I am " << _type << std::endl; };
+		/*void moveLeft();
+		void moveUp();
+		void moveDown();*/
 #pragma endregion
 
 #pragma region Actions
-		putBomb();
+		//void putBomb();
 #pragma endregion
 	};
 }

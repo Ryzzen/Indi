@@ -5,11 +5,13 @@
 ** indi
 */
 
-#ifndef gameObject
-	#define gameObject
+#ifndef GAMEOBJECT
+	#define GAMEOBJECT
 
 #include <vector>
 #include <string>
+#include <iostream>
+#include <functional>
 
 namespace Game {
 
@@ -58,15 +60,15 @@ namespace Game {
 
 		virtual ~GameObject() {}
 
-		void update() {}
+		virtual void update() {}
 
-		void moveRight() {}
-		void moveLeft() {}
-		void moveUp() {}
-		void moveDown() {}
+		virtual void moveRight() {}
+		virtual void moveLeft() {}
+		virtual void moveUp() {}
+		virtual void moveDown() {}
 	};
 
 }
 
 
-#endif /* !gameObject */
+#endif /* !GAMEOBJECT */

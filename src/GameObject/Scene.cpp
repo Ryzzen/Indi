@@ -7,6 +7,10 @@
 
 #include "Scene.hpp"
 
+// Global variables
+
+	Game::Scene Game::scene = Game::Scene();
+
 // Private functions
 
 unsigned int Game::Scene::getUniqueId()
@@ -22,39 +26,39 @@ unsigned int Game::Scene::getUniqueId()
 
 // Public functions 
 
-void Game::Scene::moveObject(unsigned int id, std::pair<float, float> offset)
+void Game::Scene::moveObject(unsigned int id, float offset_x, float offset_y)
 {
 	if (!_gameObjetcs[id]\
-		|| (_gameObjetcs[id]->_position.first + offset.first < 0 || _gameObjetcs[id]->_position.first + offset.first > _width)\
-		|| (_gameObjetcs[id]->_position.second + offset.second < 0 || _gameObjetcs[id]->_position.second + offset.second > _height))
+		|| (_gameObjetcs[id]->_position.first + offset_x < 0 || _gameObjetcs[id]->_position.first + offset_x > _width)\
+		|| (_gameObjetcs[id]->_position.second + offset_y < 0 || _gameObjetcs[id]->_position.second + offset_y > _height))
 		return;
 
 	_map[static_cast<unsigned int>(_gameObjetcs[id]->_position.second)][static_cast<unsigned int>(_gameObjetcs[id]->_position.first)].removeObject(id);
-	_gameObjetcs[id]->_position.first += offset.first;
-	_gameObjetcs[id]->_position.second += offset.second;
+	_gameObjetcs[id]->_position.first += offset_x;
+	_gameObjetcs[id]->_position.second += offset_y;
 	_map[static_cast<unsigned int>(_gameObjetcs[id]->_position.second)][static_cast<unsigned int>(_gameObjetcs[id]->_position.first)].addObject(id);
 }
 
-std::vector<unsigned int> Game::Scene::getPosistionObjectsIds(std::pair<float, float> position) const
+std::vector<unsigned int> Game::Scene::getPosistionObjectsIds(float x, float y) const
 {
-	if ((position.first < 0 || position.first > _width)
-		|| (position.second < 0 || position.second> _height))
+	if ((x < 0 || x > _width)
+		|| (y < 0 || y > _height))
 		return (std::vector<unsigned int>());
 
 	std::vector<unsigned int> result;
-	for (unsigned int id : _map[static_cast<unsigned int>(position.second)][static_cast<unsigned int>(position.first)]._objects)
+	for (unsigned int id : _map[static_cast<unsigned int>(y)][static_cast<unsigned int>(x)]._objects)
 		result.push_back(id);
 	return (result);
 }
 
-std::vector<std::string> Game::Scene::getPosistionObjectsTypes(std::pair<float, float> position)
+std::vector<std::string> Game::Scene::getPosistionObjectsTypes(float x, float y)
 {
-	if ((position.first < 0 || position.first > _width)
-		|| (position.second < 0 || position.second> _height))
+	if ((x < 0 || x > _width)
+		|| (y < 0 || y > _height))
 		return (std::vector<std::string>());
 
 	std::vector<std::string> result;
-	for (unsigned int id : _map[static_cast<unsigned int>(position.second)][static_cast<unsigned int>(position.first)]._objects)
+	for (unsigned int id : _map[static_cast<unsigned int>(y)][static_cast<unsigned int>(x)]._objects)
 		result.push_back(_gameObjetcs[id]->_type);
 	return (result);
 }
@@ -67,13 +71,26 @@ void Game::Scene::update()
 
 void Game::Scene::takeAction(Game::e_action action)
 {
-	Game::objectActionFunction f = _actionHandler[action];
+	std::function<void()> f = _actionHandler[action];
 	if (!f)
 		return;
-	(*f)();
+	try
+	{
+		f();
+	}
+	catch (const std::exception&)
+	{
+		return;
+	}
+	
 }
 
-void Game::Scene::subscribeToAction(Game::e_action action, Game::objectActionFunction f)
+void Game::Scene::subscribeToAction(Game::e_action action, std::function<void()> f)
 {
 	_actionHandler[action] = f;
+}
+
+void Game::Scene::unsubscribeToAction(Game::e_action action)
+{
+	_actionHandler.erase(action);
 }
