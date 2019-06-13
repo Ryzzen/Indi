@@ -27,7 +27,11 @@ IF (Irrlicht_FOUND)
             src/Menu/menu.hpp
             src/Menu/menu.cpp
             src/Keyboard/Keyboard.hpp
-            src/Keyboard/Keyboard.cpp)
+            src/Keyboard/Keyboard.cpp
+            src/IrrManager.cpp
+            src/IrrManager.hpp
+            src/game.hpp
+            src/game.cpp)
 
     add_executable(
             bomberman

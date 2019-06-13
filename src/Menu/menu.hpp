@@ -24,12 +24,19 @@ namespace MainMenu {
         irr::gui::IGUIButton *_load;
     public:
 #pragma region Constructor / Destructor
+        Menu(void);
         Menu(irr::gui::IGUIEnvironment* _guienv);
         ~Menu() {}
 #pragma endregion
-#pragma region Constructor / Destructor
+#pragma region Alive
         bool isAlive() {return _alive;}
         bool setAlive(bool b) {_alive = b;}
+#pragma endregion
+#pragma region Setters
+        void setGuienv(irr::gui::IGUIEnvironment* _guienv);
+#pragma endregion
+#pragma region GameLoop
+        void menuLoop();
 #pragma endregion
     };
 }
