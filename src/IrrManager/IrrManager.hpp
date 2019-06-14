@@ -11,9 +11,8 @@
 #include <iostream>
 #include <vector>
 #include <irrlicht.h>
-#include "IndiReceiver/IndiReceiver.hpp"
-#include "Menu/menu.hpp"
-#include "Keyboard/Keyboard.hpp"
+#include "./../Menu/menu.hpp"
+#include "./../Keyboard/Keyboard.hpp"
 
 class IrrManager {
     public:

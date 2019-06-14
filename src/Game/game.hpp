@@ -11,10 +11,10 @@
 #include <iostream>
 #include <vector>
 #include <irrlicht.h>
-#include "IndiReceiver/IndiReceiver.hpp"
-#include "Menu/menu.hpp"
-#include "Keyboard/Keyboard.hpp"
-#include "IrrManager.hpp"
+#include "./../IndiReceiver/IndiReceiver.hpp"
+#include "./../Menu/menu.hpp"
+#include "./../Keyboard/Keyboard.hpp"
+#include "./../IrrManager/IrrManager.hpp"
 
 class GameManager {
     public:

@@ -5,7 +5,7 @@
 ** main.cpp
 */
 
-#include "game.hpp"
+#include "Game/game.hpp"
 
 using namespace irr;
 using namespace core;
