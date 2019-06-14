@@ -21,7 +21,7 @@ IF (Irrlicht_FOUND)
     file(GLOB
         SRCS
             src/main.cpp
-			src/event.hpp
+      			src/event.hpp
             src/IndiReceiver/IndiReceiver.hpp
             src/IndiReceiver/IndiReceiver.cpp
             src/Menu/menu.hpp
@@ -31,7 +31,12 @@ IF (Irrlicht_FOUND)
             src/IrrManager/IrrManager.cpp
             src/IrrManager/IrrManager.hpp
             src/Game/game.hpp
-            src/Game/game.cpp)
+            src/Game/game.cpp
+      			src/GameObject/GameObject.hpp
+			      src/GameObject/Scene.hpp
+			      src/GameObject/Scene.cpp
+			      src/GameObject/Bomberman/Bomberman.hpp
+			      src/GameObject/Bomberman/Bomberman.cpp)
 
     add_executable(
             bomberman

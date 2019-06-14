@@ -19,11 +19,6 @@ using namespace MainMenu;
 #pragma comment(lib, "Irrlicht.lib")
 #endif
 
-void play_1p()
-{
-    std::cout << "play 1 player" << std::endl;
-}
-
 void play_2p()
 {
     std::cout << "play 2 players" << std::endl;
