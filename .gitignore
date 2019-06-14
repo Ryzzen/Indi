@@ -5,3 +5,4 @@ bin/*
 !/bin/Irrlicht.dll
 ./bomberman
 vgcore.*
+bomberman
