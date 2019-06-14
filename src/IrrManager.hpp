@@ -19,7 +19,6 @@ class IrrManager {
     public:
         IrrManager();
         ~IrrManager();
-        void setFuncs(void *play, void *quit, void *load);
         void setMenu(MainMenu::Menu *my_menu) {this->_receiver.setMenu(my_menu);}
 //  SEGAULT WHEN USED:
 /*      IndiReceiver getReceiver() {return _receiver;}

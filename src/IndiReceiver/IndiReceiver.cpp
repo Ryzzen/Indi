@@ -67,6 +67,16 @@ bool IndiReceiver::OnEvent(const SEvent& event)
             ptrF = (void (*)())ptr;
             ptrF();
             break;
+        case 4:
+            ptr = this->_play2Func;
+            ptrF = (void (*)())ptr;
+            ptrF();
+            break;
+        case 5:
+            ptr = this->_settingsFunc;
+            ptrF = (void (*)())ptr;
+            ptrF();
+            break;
         default:
             break;
         }

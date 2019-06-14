@@ -18,16 +18,13 @@
 
 class GameManager {
     public:
-        GameManager(void *play, void *quit, void *load);
+        GameManager(void *play_1p, void *play_2p, void *quit, void *load, void *settings);
         ~GameManager();
         void launchMenuLoop();
     protected:
     private:
         IrrManager *_irrmgr;
         MainMenu::Menu *_menu;
-        void (*_playFunc)();
-        void (*_quitFunc)();
-        void (*_loadFunc)();
 };
 
 #endif /* !GAME_MANAGER */

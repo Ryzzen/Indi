@@ -22,10 +22,3 @@ IrrManager::IrrManager()
 IrrManager::~IrrManager()
 {
 }
-
-void IrrManager::setFuncs(void *play, void *quit, void *load)
-{
-    this->_receiver.setPlayFunc(play);
-    this->_receiver.setQuitFunc(quit);
-    this->_receiver.setLoadFunc(load);
-}

@@ -19,9 +19,14 @@ using namespace MainMenu;
 #pragma comment(lib, "Irrlicht.lib")
 #endif
 
-void play()
+void play_1p()
 {
-    std::cout << "play" << std::endl;
+    std::cout << "play 1 player" << std::endl;
+}
+
+void play_2p()
+{
+    std::cout << "play 2 players" << std::endl;
 }
 
 void quit()
@@ -35,9 +40,14 @@ void load()
     std::cout << "load" << std::endl;
 }
 
+void settings()
+{
+    std::cout << "settings" << std::endl;
+}
+
 int main()
 {
-    GameManager *my_game = new GameManager((void *)&play, (void *)&quit, (void *)&load);
+    GameManager *my_game = new GameManager((void *)&play_1p, (void *)&play_2p, (void *)&quit, (void *)&load, (void *)&settings);
 
     my_game->launchMenuLoop();
     return 0;
