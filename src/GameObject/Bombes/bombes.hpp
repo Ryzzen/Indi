@@ -6,20 +6,20 @@
 */
 
 #ifndef BOMBES
-	#define BOMBES
+    #define BOMBES
 
 #include "../GameObject.hpp"
 #include "../Bomberman/Bomberman.hpp"
 
 namespace Game {
-	class Bombe : public Game::GameObject {
+    class Bombe : public Game::GameObject {
         public:
                 #pragma region publicValues
 
                 #pragma endregion
 
                 #pragma region Constructor / Destructor
-                Bombe(const int radius, const int owner, std::string type, std::string mesh, std::string texture, std::pair<float, float> position = std::make_pair(0.f, 0.f)):
+                Bombe(const int radius, const int owner, std::string mesh, std::string texture, std::string type = Game::BOMB, std::pair<float, float> position = std::make_pair(0.f, 0.f)):
                         Game::GameObject(type, mesh, texture, position)
                         {
                                 _radius = radius;
@@ -40,7 +40,7 @@ namespace Game {
                 int _radius;
                 int _owner;
                 void _explode();
-	};
+    };
 }
 
 #endif /* !BOMBERMAN */

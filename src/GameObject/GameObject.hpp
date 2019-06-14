@@ -27,6 +27,10 @@ namespace Game {
     constexpr auto PW_FIRE = "power_up_fire";
     constexpr auto PW_SFT_WALL_PASS = "power_up_soft_wall_pass";
 
+    constexpr auto BOMB_TXTU_PATH = "texture/path";
+    constexpr auto BOMB_MESH_PATH = "texture/mesh";
+
+
     enum e_animation {
         ANIM_IDLE,
         ANIM_WALKING,
@@ -37,11 +41,6 @@ namespace Game {
     class IGameObject {
     public:
         virtual void update() = 0;
-
-        virtual void moveRight() = 0;
-        virtual void moveLeft() = 0;
-        virtual void moveUp() = 0;
-        virtual void moveDown() = 0;
     };
 
     class GameObject : public IGameObject {
@@ -62,12 +61,7 @@ namespace Game {
 
         virtual ~GameObject() {}
 
-        virtual void update() {}
-
-        virtual void moveRight() {}
-        virtual void moveLeft() {}
-        virtual void moveUp() {}
-        virtual void moveDown() {}
+        virtual void update();
     };
 
 }

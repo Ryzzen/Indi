@@ -10,6 +10,7 @@
 
 #include "../GameObject.hpp"
 #include "../Scene.hpp"
+#include "../Bombes/bombes.hpp"
 
 namespace Game {
     class Bomberman : public Game::GameObject {
@@ -29,7 +30,7 @@ namespace Game {
             _firePower(firePower),
             _softBlockPass(softBlockPass)
         {
-            Game::scene.subscribeToAction(Game::P1_MV_RIGHT, std::bind(&Game::GameObject::moveRight, this));
+            Game::scene.subscribeToAction(Game::P1_MV_RIGHT, std::bind(&Game::Bomberman::moveRight, this));
         }
         ~Bomberman()
         {
@@ -39,14 +40,15 @@ namespace Game {
 #pragma endregion
 
 #pragma region Moves
-        void moveRight() { std::cout << "I am " << _type << std::endl; };
-        /*void moveLeft();
+        void moveRight();
+        void moveLeft();
         void moveUp();
-        void moveDown();*/
+        void moveDown();
 #pragma endregion
 
 #pragma region Actions
-        //void putBomb();
+        void putBomb();
+        void update();
 #pragma endregion
     };
 }
