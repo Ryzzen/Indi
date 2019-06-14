@@ -51,6 +51,13 @@ namespace Game {
             _height = height;
         }
 
+        std::vector<std::vector<Game::Ground>> getMap() { return (_map); }
+        std::vector<Game::GameObject> getGameObjects()
+        {
+            std::vector<Game::GameObject> gameObjects;
+            for (auto const &object : _gameObjetcs)
+                gameObjects.push_back(*(object.second.get()));
+        }
         void addObject(std::unique_ptr<Game::GameObject> object)
         {
             unsigned int id = getUniqueId();
@@ -67,6 +74,7 @@ namespace Game {
         }
         std::unique_ptr<Game::GameObject> &getObjectById(unsigned int id) { return (_gameObjetcs[id]); }
 
+        std::string getTypeById(unsigned int id) { return (_gameObjetcs[id]->_type); }
         void moveObject(unsigned int id, float offset_x, float offset_y);
         std::vector<unsigned int> getPosistionObjectsIds(float x, float y) const;
         std::vector<std::string> getPosistionObjectsTypes(float x, float y);
