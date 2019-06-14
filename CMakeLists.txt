@@ -21,12 +21,22 @@ IF (Irrlicht_FOUND)
     file(GLOB
         SRCS
             src/main.cpp
-			src/event.hpp
-			src/GameObject/GameObject.hpp
-			src/GameObject/Scene.hpp
-			src/GameObject/Scene.cpp
-			src/GameObject/Bomberman/Bomberman.hpp
-			src/GameObject/Bomberman/Bomberman.cpp)
+      			src/event.hpp
+            src/IndiReceiver/IndiReceiver.hpp
+            src/IndiReceiver/IndiReceiver.cpp
+            src/Menu/menu.hpp
+            src/Menu/menu.cpp
+            src/Keyboard/Keyboard.hpp
+            src/Keyboard/Keyboard.cpp
+            src/IrrManager/IrrManager.cpp
+            src/IrrManager/IrrManager.hpp
+            src/Game/game.hpp
+            src/Game/game.cpp
+      			src/GameObject/GameObject.hpp
+			      src/GameObject/Scene.hpp
+			      src/GameObject/Scene.cpp
+			      src/GameObject/Bomberman/Bomberman.hpp
+			      src/GameObject/Bomberman/Bomberman.cpp)
 
     add_executable(
             bomberman
