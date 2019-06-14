@@ -76,7 +76,7 @@ namespace Game {
 
         std::string getTypeById(unsigned int id) { return (_gameObjetcs[id]->_type); }
         void moveObject(unsigned int id, float offset_x, float offset_y);
-        std::vector<unsigned int> getIdsByType(std::string type)
+        std::vector<unsigned int> getIdsByType(std::string type);
         std::vector<unsigned int> getPosistionObjectsIds(float x, float y) const;
         std::vector<std::string> getPosistionObjectsTypes(float x, float y);
 
