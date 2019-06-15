@@ -6,7 +6,6 @@
 //
 
 #include "IndiReceiver.hpp"
-
 using namespace irr;
 
 IndiReceiver::IndiReceiver()
@@ -39,9 +38,6 @@ std::vector<int> IndiReceiver::getUnpressedKeys(void)
 
 bool IndiReceiver::OnEvent(const SEvent& event)
 {
-    void *ptr = NULL;
-    void (*ptrF)() = NULL;
-
     if (event.EventType == irr::EET_KEY_INPUT_EVENT)
     {
         keysState_[event.KeyInput.Key] = event.KeyInput.PressedDown;
@@ -53,29 +49,19 @@ bool IndiReceiver::OnEvent(const SEvent& event)
         switch (id)
         {
         case 1:
-            ptr = this->_playFunc;
-            ptrF = (void (*)())ptr;
-            ptrF();
+            this->_playFunc();
             break;
         case 2:
-            ptr = this->_quitFunc;
-            ptrF = (void (*)())ptr;
-            ptrF();
+            this->_quitFunc();
             break;
         case 3:
-            ptr = this->_loadFunc;
-            ptrF = (void (*)())ptr;
-            ptrF();
+            this->_loadFunc();
             break;
         case 4:
-            ptr = this->_play2Func;
-            ptrF = (void (*)())ptr;
-            ptrF();
+            this->_play2Func();
             break;
         case 5:
-            ptr = this->_settingsFunc;
-            ptrF = (void (*)())ptr;
-            ptrF();
+            this->_settingsFunc();
             break;
         default:
             break;

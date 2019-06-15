@@ -5,7 +5,8 @@
 ** main.cpp
 */
 
-#include "Game/game.hpp"
+#include "Menu/menu.hpp"
+#include "Settings/settings.hpp"
 
 using namespace irr;
 using namespace core;
@@ -13,11 +14,12 @@ using namespace scene;
 using namespace video;
 using namespace io;
 using namespace gui;
-using namespace MainMenu;
 
 #ifdef _IRR_WINDOWS_
 #pragma comment(lib, "Irrlicht.lib")
 #endif
+
+static IrrManager *irrMgr = new IrrManager();
 
 void play_1p()
 {
@@ -42,13 +44,12 @@ void load()
 
 void settings()
 {
-    std::cout << "settings" << std::endl;
+    Settings *my_settings = new Settings(irrMgr);
 }
 
 int main()
 {
-    GameManager *my_game = new GameManager((void *)&play_1p, (void *)&play_2p, (void *)&quit, (void *)&load, (void *)&settings);
+    Menu *my_menu = new Menu(irrMgr, play_1p, play_2p, quit, load, settings);
 
-    my_game->launchMenuLoop();
     return 0;
 }

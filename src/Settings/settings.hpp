@@ -1,12 +1,12 @@
 /*
 ** EPITECH PROJECT, 2019
-** Indie
+** Indi
 ** File description:
-** menu.hpp
+** Settings.hpp
 */
 
-#ifndef menu
-#define menu
+#ifndef SETTINGS
+#define SETTINGS
 
 #include <irrlicht.h>
 #include <vector>
@@ -15,12 +15,12 @@
 #include <algorithm>
 #include "./../IrrManager/IrrManager.hpp"
 
-class Menu {
+class Settings {
     private:
         IrrManager *_irrMgr;
     public:
-        Menu(IrrManager *irr, void (*play)(), void (*play2)(), void (*quit)(), void (*load)(), void (*settings)());
-        ~Menu();
+        Settings(IrrManager *irr);
+        ~Settings();
 };
 
-#endif /* !menu */
+#endif /* !SETTINGS */

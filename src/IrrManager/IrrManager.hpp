@@ -11,23 +11,27 @@
 #include <iostream>
 #include <vector>
 #include <irrlicht.h>
-#include "./../Menu/menu.hpp"
 #include "./../Keyboard/Keyboard.hpp"
 
 class IrrManager {
+
+    struct menuButtons {
+        irr::gui::IGUIButton *buttonPlay1;
+        irr::gui::IGUIButton *buttonPlay2;
+        irr::gui::IGUIButton *buttonQuit;
+        irr::gui::IGUIButton *buttonLoad;
+        irr::gui::IGUIButton *buttonSettings;
+    };
+
     public:
         IrrManager();
         ~IrrManager();
-        void setMenu(MainMenu::Menu *my_menu) {this->_receiver.setMenu(my_menu);}
-//  SEGAULT WHEN USED:
-/*      IndiReceiver getReceiver() {return _receiver;}
-        IrrlichtDevice *getDevice() {return _device;}
-        irr::video::IVideoDriver *getDriver() {return _driver;}
-        irr::scene::ISceneManager *getSceneManager() {return _smgr;}
-        irr::gui::IGUIEnvironment *getGuiEnv() {return _guienv;}
-    private:
-*/        IndiReceiver _receiver;
-        IrrlichtDevice *_device;
+        void deleteButtons();
+        bool _menuUP;
+        bool _settingsUP;
+        struct menuButtons _butts;
+        IndiReceiver _receiver;
+        irr::IrrlichtDevice *_device;
         irr::video::IVideoDriver *_driver;
         irr::scene::ISceneManager *_smgr;
         irr::gui::IGUIEnvironment *_guienv;

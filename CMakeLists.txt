@@ -30,15 +30,15 @@ IF (Irrlicht_FOUND)
             src/Keyboard/Keyboard.cpp
             src/IrrManager/IrrManager.cpp
             src/IrrManager/IrrManager.hpp
-            src/Game/game.hpp
-            src/Game/game.cpp
             src/GameObject/GameObject.hpp
             src/GameObject/Scene.hpp
             src/GameObject/Scene.cpp
             src/GameObject/Bomberman/Bomberman.hpp
             src/GameObject/Bomberman/Bomberman.cpp
             src/Clock/clock.cpp
-            src/Clock/clock.hpp)
+            src/Clock/clock.hpp
+            src/Settings/settings.hpp
+            src/Settings/settings.cpp)
 
     add_executable(
             bomberman
