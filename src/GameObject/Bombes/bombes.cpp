@@ -22,22 +22,22 @@ void Game::Bombe::explode()
     std::vector<std::string> type = scene.getPosistionObjectsTypes(_position.first + 1, _position.second);
     for (int i = 2 ; i <= _radius || std::find(type.begin(), type.end(), Game::WALL) != type.end() ; i++) {
         if (std::find(type.begin(), type.end(), Game::SOFT_WALL) != type.end()) {
-            scene.addObject(std::make_unique<Game::Explosion>(std::make_pair(_position.first + 1, _position.second)));
+            scene.addObject(std::make_unique<Game::Explosion>(_id, std::make_pair(_position.first + 1, _position.second)));
             break;
         }
         else
-            scene.addObject(std::make_unique<Game::Explosion>(std::make_pair(_position.first + 1, _position.second)));
+            scene.addObject(std::make_unique<Game::Explosion>(_id, std::make_pair(_position.first + 1, _position.second)));
         std::vector<std::string> type = scene.getPosistionObjectsTypes(_position.first + i, _position.second);
     }
 
     type = scene.getPosistionObjectsTypes(_position.first - 1, _position.second);
     for (int i = 2 ; i <= _radius || std::find(type.begin(), type.end(), Game::WALL) != type.end() ; i++) {
         if (std::find(type.begin(), type.end(), Game::SOFT_WALL) != type.end()) {
-            scene.addObject(std::make_unique<Game::Explosion>(std::make_pair(_position.first - 1, _position.second)));
+            scene.addObject(std::make_unique<Game::Explosion>(_id, std::make_pair(_position.first - 1, _position.second)));
             break;
         }
         else
-            scene.addObject(std::make_unique<Game::Explosion>(std::make_pair(_position.first - 1, _position.second)));
+            scene.addObject(std::make_unique<Game::Explosion>(_id, std::make_pair(_position.first - 1, _position.second)));
         std::vector<std::string> type = scene.getPosistionObjectsTypes(_position.first - i, _position.second);
     }
     return;
@@ -45,26 +45,26 @@ void Game::Bombe::explode()
     type = scene.getPosistionObjectsTypes(_position.first, _position.second + 1);
     for (int i = 2 ; i <= _radius || std::find(type.begin(), type.end(), Game::WALL) != type.end() ; i++) {
         if (std::find(type.begin(), type.end(), Game::SOFT_WALL) != type.end()) {
-            scene.addObject(std::make_unique<Game::Explosion>(std::make_pair(_position.first, _position.second + 1)));
+            scene.addObject(std::make_unique<Game::Explosion>(_id, std::make_pair(_position.first, _position.second + 1)));
             break;
         }
         else
-            scene.addObject(std::make_unique<Game::Explosion>(std::make_pair(_position.first, _position.second + 1)));
+            scene.addObject(std::make_unique<Game::Explosion>(_id, std::make_pair(_position.first, _position.second + 1)));
         std::vector<std::string> type = scene.getPosistionObjectsTypes(_position.first, _position.second + i);
     }
 
     type = scene.getPosistionObjectsTypes(_position.first, _position.second - 1);
     for (int i = 2 ; i <= _radius || std::find(type.begin(), type.end(), Game::WALL) != type.end() ; i++) {
         if (std::find(type.begin(), type.end(), Game::SOFT_WALL) != type.end()) {
-            scene.addObject(std::make_unique<Game::Explosion>(std::make_pair(_position.first, _position.second - 1)));
+            scene.addObject(std::make_unique<Game::Explosion>(_id, std::make_pair(_position.first, _position.second - 1)));
             break;
         }
         else
-            scene.addObject(std::make_unique<Game::Explosion>(std::make_pair(_position.first, _position.second - 1)));
+            scene.addObject(std::make_unique<Game::Explosion>(_id, std::make_pair(_position.first, _position.second - 1)));
         std::vector<std::string> type = scene.getPosistionObjectsTypes(_position.first, _position.second - i);
     }
 
-    scene.addObject(std::make_unique<Game::Explosion>(_position));
+    scene.addObject(std::make_unique<Game::Explosion>(_id, _position));
 }
 
 void Game::Bombe::update()

@@ -17,7 +17,7 @@ void Game::Explosion::destruction()
 {
     std::vector<unsigned int> ids = scene.getPosistionObjectsIds(_position.first, _position.second);
     for (auto id : ids) {
-        if (id != _id)
-			Game::scene.removeObject(id);
+        if (id != _id && id != _owner)
+            Game::scene.removeObject(id);
     }
 }
