@@ -16,14 +16,14 @@ namespace Game {
     class Bomberman : public Game::GameObject {
     public:
 #pragma region Attributs
-        int _bombs;
+        std::vector<bool> _bombs;
         float _speed;
         int _firePower;
         bool _softBlockPass;
 #pragma endregion
 
 #pragma region Constructor / Destructor
-        Bomberman(std::string type, std::string meshPath, std::string texturePath, std::pair<float, float> position = std::make_pair(0.f, 0.f), int bombs = 0, float speed = 0.1, int firePower = 1, bool softBlockPass = false)
+        Bomberman(std::string type, std::pair<float, float> position = std::make_pair(0.f, 0.f), std::string meshPath = Game::BOMBERMAN_TXTU_PATH, std::string texturePath = Game::BOMBERMAN_MESH_PATH, int bombs = 1, float speed = 0.1, int firePower = 2, bool softBlockPass = false)
             : Game::GameObject(type, meshPath, texturePath, position),
             _bombs(bombs),
             _speed(speed),
@@ -31,11 +31,13 @@ namespace Game {
             _softBlockPass(softBlockPass)
         {
             Game::scene.subscribeToAction(Game::P1_MV_RIGHT, std::bind(&Game::Bomberman::moveRight, this));
+            Game::scene.subscribeToAction(Game::P1_PUT_BOMB, std::bind(&Game::Bomberman::putBomb, this));
         }
         ~Bomberman()
         {
             _animationState = Game::ANIM_DYING;
             Game::scene.unsubscribeToAction(Game::P1_MV_RIGHT);
+            Game::scene.unsubscribeToAction(Game::P1_PUT_BOMB);
         }
 #pragma endregion
 

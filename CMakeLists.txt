@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.11)
 
 project(Indie)
 
+set(CMAKE_AUTOMOC ON)
+
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMakeModules")
 set(CMAKE_PATH ${CMAKE_PATH} "${CMAKE_SOURCE_DIR}/")
 
@@ -19,29 +21,36 @@ IF (Irrlicht_FOUND)
     include_directories(${Irrlicht_INCLUDE_DIRS})
 
     file(GLOB
+        HDRS
+            src/event.hpp
+            src/IndiReceiver/IndiReceiver.hpp
+            src/Menu/menu.hpp
+            src/Keyboard/Keyboard.hpp
+            src/IrrManager/IrrManager.cpp
+            src/Game/game.hpp
+            src/GameObject/GameObject.hpp
+            src/GameObject/Bomberman/Bomberman.hpp
+            src/Clock/clock.hpp
+            src/GameObject/Bombes/bombes.hpp
+            src/GameObject/Bombes/Explosion/Explosionh.hpp)
+
+    file(GLOB
         SRCS
             src/main.cpp
-      			src/event.hpp
-            src/IndiReceiver/IndiReceiver.hpp
             src/IndiReceiver/IndiReceiver.cpp
-            src/Menu/menu.hpp
             src/Menu/menu.cpp
-            src/Keyboard/Keyboard.hpp
             src/Keyboard/Keyboard.cpp
             src/IrrManager/IrrManager.cpp
-            src/IrrManager/IrrManager.hpp
-            src/Game/game.hpp
             src/Game/game.cpp
-            src/GameObject/GameObject.hpp
-            src/GameObject/Scene.hpp
             src/GameObject/Scene.cpp
-            src/GameObject/Bomberman/Bomberman.hpp
             src/GameObject/Bomberman/Bomberman.cpp
             src/Clock/clock.cpp
-            src/Clock/clock.hpp)
+            src/GameObject/Bombes/bombes.cpp
+            src/GameObject/Bombes/Explosion/Explosion.cpp)
 
     add_executable(
             bomberman
+            ${HDRS}
             ${SRCS}
     )
 

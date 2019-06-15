@@ -12,7 +12,8 @@
 #include <cstdio>
 #include <ctime>
 
-class Clock {
+namespace Game {
+    class Clock {
     public:
         Clock();
         ~Clock();
@@ -26,6 +27,7 @@ class Clock {
         std::clock_t _clock;
         double _timer;
         bool _isPaused;
-};
+    };
+}
 
 #endif /* !CLOCK */
