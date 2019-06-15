@@ -21,7 +21,7 @@ GameManager::GameManager(void *play_1p, void *play_2p, void *quit, void *load, v
 
 void GameManager::launchMenuLoop()
 {
-    while (this->_irrmgr->_device->run() and this->_menu->isAlive())
+    while (this->_irrmgr->_device->run() && this->_menu->isAlive())
     {
         this->_irrmgr->_driver->beginScene(true, true, irr::video::SColor(255, 100, 101, 140));
         this->_irrmgr->_smgr->drawAll();

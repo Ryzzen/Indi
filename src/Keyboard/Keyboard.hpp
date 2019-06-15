@@ -9,7 +9,7 @@
 #define KEYBOARD_
 
 #include <vector>
-#include <irrlicht/irrlicht.h>
+#include <irrlicht.h>
 
 #include "../IndiReceiver/IndiReceiver.hpp"
 

@@ -12,6 +12,7 @@
 #include <string>
 #include <iostream>
 #include <functional>
+#include <algorithm>
 
 namespace Game {
 
@@ -22,13 +23,17 @@ namespace Game {
     constexpr auto BOMB = "bomb";
     constexpr auto WALL = "wall";
     constexpr auto SOFT_WALL = "soft_wall";
-    constexpr auto EXPLOSION = "explosion";
+    constexpr auto BOMB_EXPLOSION = "explosion";
     constexpr auto PW_SPEED = "power_up_speed";
     constexpr auto PW_FIRE = "power_up_fire";
     constexpr auto PW_SFT_WALL_PASS = "power_up_soft_wall_pass";
 
     constexpr auto BOMB_TXTU_PATH = "texture/path";
     constexpr auto BOMB_MESH_PATH = "texture/mesh";
+    constexpr auto BOMBERMAN_TXTU_PATH = "texture/path";
+    constexpr auto BOMBERMAN_MESH_PATH = "texture/mesh";
+    constexpr auto EXPLOSION_TXTU_PATH = "texture/path";
+    constexpr auto EXPLOSION_MESH_PATH = "texture/mesh";
 
 
     enum e_animation {
@@ -61,7 +66,7 @@ namespace Game {
 
         virtual ~GameObject() {}
 
-        virtual void update();
+		virtual void update() {}
     };
 
 }

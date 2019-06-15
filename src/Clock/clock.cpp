@@ -7,30 +7,30 @@
 
 #include "clock.hpp"
 
-Clock::Clock():
+Game::Clock::Clock():
 _isPaused(false)
 {
     this->_clock = std::clock();
     this->_timer = 0;
 }
 
-Clock::~Clock()
+Game::Clock::~Clock()
 {
 }
 
-void Clock::startClock()
-{
-    this->_clock = std::clock();
-    this->_timer = 0;
-}
-
-void Clock::resetClock()
+void Game::Clock::startClock()
 {
     this->_clock = std::clock();
     this->_timer = 0;
 }
 
-double Clock::getClockTimer()
+void Game::Clock::resetClock()
+{
+    this->_clock = std::clock();
+    this->_timer = 0;
+}
+
+double Game::Clock::getClockTimer()
 {
     if ((std::clock() - this->_clock) / (double)CLOCKS_PER_SEC < 0.2)
         return this->_timer;
@@ -39,7 +39,7 @@ double Clock::getClockTimer()
     return this->_timer;
 }
 
-void Clock::pauseClock()
+void Game::Clock::pauseClock()
 {
     if (!this->_isPaused) {
         this->_isPaused = true;
@@ -47,7 +47,7 @@ void Clock::pauseClock()
     }
 }
 
-void Clock::resumeClock()
+void Game::Clock::resumeClock()
 {
     if (this->_isPaused) {
         this->_isPaused = false;
