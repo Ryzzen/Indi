@@ -16,6 +16,7 @@
 #include <random>
 #include <limits>
 #include <functional>
+#include <algorithm>
 #include "../event.hpp"
 #include "GameObject.hpp"
 
@@ -34,7 +35,7 @@ namespace Game {
             : _objects(std::list<unsigned int>(1, object))
         {}
 
-        void addObject(unsigned int id) { _objects.push_back(id); }
+		void addObject(unsigned int id) { _objects.push_back(id); }
         void removeObject(unsigned int id) { _objects.remove(id); }
     };
 
@@ -50,6 +51,11 @@ namespace Game {
             _width = width;
             _height = height;
         }
+		~Scene()
+		{
+			for (auto &object : _gameObjetcs)
+				object.second.reset();
+		}
 
         std::vector<std::vector<Game::Ground>> getMap() { return (_map); }
         std::vector<Game::GameObject> getGameObjects()
@@ -58,14 +64,15 @@ namespace Game {
             for (auto const &object : _gameObjetcs)
                 gameObjects.push_back(*(object.second.get()));
         }
-        void addObject(std::unique_ptr<Game::GameObject> object)
+		unsigned int addObject(std::unique_ptr<Game::GameObject> object)
         {
             unsigned int id = getUniqueId();
             _gameObjetcs[id] = move(object);
             _gameObjetcs[id]->_id = id;
             _map[static_cast<unsigned int>(_gameObjetcs[id]->_position.second)][static_cast<unsigned int>(_gameObjetcs[id]->_position.first)].addObject(id);
+			return (id);
         }
-        void removeObject(unsigned int id)
+		void removeObject(unsigned int id)
         {
             if (!_gameObjetcs[id])
                 return;

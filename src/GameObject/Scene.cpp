@@ -41,8 +41,8 @@ void Game::Scene::moveObject(unsigned int id, float offset_x, float offset_y)
 
 std::vector<unsigned int> Game::Scene::getPosistionObjectsIds(float x, float y) const
 {
-    if ((x < 0 || x > _width)
-        || (y < 0 || y > _height))
+    if ((x < 0 || x >= _width)
+        || (y < 0 || y >= _height))
         return (std::vector<unsigned int>());
 
     std::vector<unsigned int> result;
@@ -53,11 +53,13 @@ std::vector<unsigned int> Game::Scene::getPosistionObjectsIds(float x, float y) 
 
 std::vector<std::string> Game::Scene::getPosistionObjectsTypes(float x, float y)
 {
-    if ((x < 0 || x > _width)
-        || (y < 0 || y > _height))
+    if ((x < 0 || x >= _width)
+        || (y < 0 || y >= _height))
         return (std::vector<std::string>());
 
     std::vector<std::string> result;
+	if (_map[static_cast<unsigned int>(y)][static_cast<unsigned int>(x)]._objects.size() <= 0)
+		return (result);
     for (unsigned int id : _map[static_cast<unsigned int>(y)][static_cast<unsigned int>(x)]._objects)
         result.push_back(_gameObjetcs[id]->_type);
     return (result);
@@ -92,7 +94,8 @@ void Game::Scene::subscribeToAction(Game::e_action action, std::function<void()>
 
 void Game::Scene::unsubscribeToAction(Game::e_action action)
 {
-    _actionHandler[action] = NULL;
+	if (_actionHandler[action])
+		_actionHandler.erase(action);
 }
 
 std::vector<unsigned int> Game::Scene::getIdsByType(std::string type)

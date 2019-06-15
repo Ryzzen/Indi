@@ -56,7 +56,7 @@ void Game::Bomberman::putBomb()
     if (_bombs.size() <= 0)
         return;
     int i = 0;
-    for (; i < _bombs.size() || _bombs[i] ; i ++);
+    for (; i < _bombs.size() && !_bombs[i] ; i ++);
     if (i < _bombs.size())
         _bombs[i] = false;
     scene.addObject(std::make_unique<Game::Bombe>(_firePower, _id, std::make_pair(static_cast<int>(_position.first) + 0.5f, static_cast<int>(_position.second) + 0.5f)));

@@ -28,6 +28,7 @@ IF (Irrlicht_FOUND)
             src/Keyboard/Keyboard.hpp
             src/IrrManager/IrrManager.cpp
             src/Game/game.hpp
+			src/GameObject/Scene.hpp
             src/GameObject/GameObject.hpp
             src/GameObject/Bomberman/Bomberman.hpp
             src/Clock/clock.hpp

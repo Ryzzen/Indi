@@ -17,8 +17,8 @@ namespace Game {
             : Game::GameObject(type, meshPath, texturePath, position),
             _owner(owner)
             {
+				destruction();
                 _clock.startClock();
-                destruction();
             }
 
         void update();

@@ -19,5 +19,6 @@ void Game::Explosion::destruction()
     for (auto id : ids) {
         if (id != _id && id != _owner)
             Game::scene.removeObject(id);
+		std::cout << "destroyed : " << id << std::endl;
     }
 }

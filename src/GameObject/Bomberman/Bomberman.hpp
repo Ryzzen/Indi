@@ -30,13 +30,13 @@ namespace Game {
             _firePower(firePower),
             _softBlockPass(softBlockPass)
         {
-            Game::scene.subscribeToAction(Game::P1_MV_RIGHT, std::bind(&Game::Bomberman::moveRight, this));
-            Game::scene.subscribeToAction(Game::P1_PUT_BOMB, std::bind(&Game::Bomberman::putBomb, this));
+            //Game::scene.subscribeToAction(Game::P1_MV_RIGHT, std::bind(&Game::Bomberman::moveRight, this));
+			Game::scene.subscribeToAction(Game::P1_PUT_BOMB, std::bind(&Game::Bomberman::putBomb, this));
         }
         ~Bomberman()
         {
             _animationState = Game::ANIM_DYING;
-            Game::scene.unsubscribeToAction(Game::P1_MV_RIGHT);
+            //Game::scene.unsubscribeToAction(Game::P1_MV_RIGHT);
             Game::scene.unsubscribeToAction(Game::P1_PUT_BOMB);
         }
 #pragma endregion
