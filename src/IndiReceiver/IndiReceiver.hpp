@@ -9,7 +9,7 @@
 #define INDIRECEIVER_
 
 #include <vector>
-#include <irrlicht/irrlicht.h>
+#include <irrlicht.h>
 #include <iostream>
 #include "./../Menu/menu.hpp"
 

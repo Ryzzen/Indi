@@ -66,7 +66,7 @@ namespace Game {
 
         virtual ~GameObject() {}
 
-        virtual void update();
+		virtual void update() {}
     };
 
 }
