@@ -1,4 +1,4 @@
-# Install script for directory: /home/baptistemayaud/Annee2019/Indi/Indi
+# Install script for directory: /home/shiroko/Delivery/tech2/OOP/Indi
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -29,7 +29,7 @@ endif()
 
 # Install shared libraries without execute permission?
 if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "0")
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
 # Is this installation the result of a crosscompile?
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/baptistemayaud/Annee2019/Indi/Indi/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/shiroko/Delivery/tech2/OOP/Indi/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

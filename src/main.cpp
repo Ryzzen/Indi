@@ -9,6 +9,7 @@
 #include "GameObject/GameObject.hpp"
 #include "GameObject/Bomberman/Bomberman.hpp"
 #include "GameObject/Scene.hpp"
+#include "GameObject/PowerUpObject/PowerUp.hpp"
 
 using namespace irr;
 using namespace core;
@@ -52,10 +53,18 @@ int main()
 {
     GameManager *my_game = new GameManager((void *)&play_1p, (void *)&play_2p, (void *)&quit, (void *)&load, (void *)&settings);
 
-    my_game->launchMenuLoop();
 
     Game::scene.addObject(std::make_unique<Game::Bomberman>(Game::P1));
-    Game::scene.takeAction(Game::P1_PUT_BOMB);
+    std::vector<unsigned int> vecid = Game::scene.getIdsByType(Game::P1);
+    Game::Bomberman *bomber = static_cast<Game::Bomberman*>(Game::scene.getObjectById(vecid[0]).get());
+
+//    Game::scene.takeAction(Game::P1_PUT_BOMB);
+
+    Game::scene.addObject(std::make_unique<Game::BombUp>());
+    vecid = Game::scene.getIdsByType("BonbUp");
+    Game::BombUp *bombupdate = static_cast<Game::BombUp*>(Game::scene.getObjectById(vecid[0]).get());
+    bombupdate->update();
+
     Game::scene.cleanScene();
     return 0;
 }

@@ -1,0 +1,3 @@
+/home/shiroko/Delivery/tech2/OOP/Indi/CMakeFiles/rebuild_cache.dir
+/home/shiroko/Delivery/tech2/OOP/Indi/CMakeFiles/bomberman.dir
+/home/shiroko/Delivery/tech2/OOP/Indi/CMakeFiles/edit_cache.dir

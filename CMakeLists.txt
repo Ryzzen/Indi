@@ -38,7 +38,9 @@ IF (Irrlicht_FOUND)
             src/Clock/clock.hpp
             src/GameObject/Bombes/bombes.hpp
             src/GameObject/Walls/Walls.hpp
-            src/GameObject/Bombes/Explosion/Explosion.hpp)
+            src/GameObject/Bombes/Explosion/Explosion.hpp
+            src/GameObject/PowerUpObject/PowerUp.hpp)
+            
 
     file(GLOB
         SRCS
@@ -53,7 +55,9 @@ IF (Irrlicht_FOUND)
             src/Clock/clock.cpp
             src/GameObject/Bombes/bombes.cpp
             src/Saves/Saves.cpp
-            src/GameObject/Bombes/Explosion/Explosion.cpp)
+            src/GameObject/Bombes/Explosion/Explosion.cpp
+            src/GameObject/PowerUpObject/PowerUp.cpp)
+
 
     add_executable(
             bomberman

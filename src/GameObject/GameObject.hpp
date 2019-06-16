@@ -38,7 +38,14 @@ namespace Game {
     constexpr auto HARDWALL_MESH_PATH = "texture/mesh";
     constexpr auto SOFTWALL_TXTU_PATH = "texture/path";
     constexpr auto SOFTWALL_MESH_PATH = "texture/mesh";
-
+    constexpr auto BOMBUP_TXTU_PATH = "texture/path";
+    constexpr auto BOMBUP_MESH_PATH = "texture/mesh";
+    constexpr auto FIREUP_TXTU_PATH = "texture/path";
+    constexpr auto FIREUP_MESH_PATH = "texture/mesh";
+    constexpr auto SPEEDUP_TXTU_PATH = "texture/path";
+    constexpr auto SPEEDUP_MESH_PATH = "texture/mesh";
+    constexpr auto WALLPASS_TXTU_PATH = "texture/path";
+    constexpr auto WALLPASS_MESH_PATH = "texture/mesh";
 
     enum e_animation {
         ANIM_IDLE,

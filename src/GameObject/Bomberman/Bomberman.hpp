@@ -25,7 +25,7 @@ namespace Game {
 #pragma region Constructor / Destructor
         Bomberman(std::string type, std::pair<float, float> position = std::make_pair(0.f, 0.f), std::string meshPath = Game::BOMBERMAN_TXTU_PATH, std::string texturePath = Game::BOMBERMAN_MESH_PATH, int bombs = 1, float speed = 0.1, int firePower = 2, bool softBlockPass = false)
             : Game::GameObject(type, meshPath, texturePath, position),
-            _bombs(bombs),
+            _bombs(std::vector<bool>(bombs, true)),
             _speed(speed),
             _firePower(firePower),
             _softBlockPass(softBlockPass)

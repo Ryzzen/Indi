@@ -103,6 +103,7 @@ std::vector<unsigned int> Game::Scene::getIdsByType(std::string type)
     std::vector<unsigned int> ids;
 
     for (auto const &object : _gameObjetcs)
-        ids.push_back(object.second->_id);
+        if (object.second->_type == type)
+            ids.push_back(object.second->_id);
     return (ids);
 }
