@@ -98,7 +98,12 @@ int main() {
     std::cout << c.getT().a << std::endl;
 
     serializeObject<testSon>(v, "testSonfile");
-    unserializeObject<testSon>(w, "testSonfile");
+    try {
+        unserializeObject<testSon>(w, "testfil");
+    }
+    catch (boost::archive::archive_exception &except) {
+        std::cerr << "lol" << std::endl;
+    }
     w.printG();
     w.printA();
 }
