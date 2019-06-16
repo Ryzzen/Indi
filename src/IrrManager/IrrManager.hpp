@@ -31,6 +31,12 @@ class IrrManager {
         irr::video::IVideoDriver *_driver;
         irr::scene::ISceneManager *_smgr;
         irr::gui::IGUIEnvironment *_guienv;
+    private:
+        friend class boost::serialization::access;
+        template<class Archive>
+        void serialize(Archive &ar, const unsigned int version) {
+            ar & _receiver & _device & _driver & _smgr & _guienv;
+        }
 };
 
 #endif /* !IRRMANAGER */

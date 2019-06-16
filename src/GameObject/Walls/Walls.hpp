@@ -22,6 +22,13 @@ namespace Game {
 
         }
 #pragma endregion
+    private:
+        friend class boost::serialization::access;
+        template<class Archive>
+        void serialize(Archive & ar, const unsigned int version) {
+            ar & boost::serialization::base_object<Game::GameObject>(*this);    // sérialisation de la classe mère
+            ar;                       // sérialisation des éléments propres à lobjet courant
+        }
     };
 
     class SoftWall : public Game::GameObject {

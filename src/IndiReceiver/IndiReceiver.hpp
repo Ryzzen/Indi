@@ -35,6 +35,13 @@ private:
     void *_quitFunc;
     void *_loadFunc;
     void *_settingsFunc;
+
+    friend class boost::serialization::access;
+        template<class Archive>
+        void serialize(Archive & ar, const unsigned int version) {
+            ar & boost::serialization::base_object<IEventReceiver>(*this);    // sérialisation de la classe mère
+            ar & _menu & keysState_ & _playFunc & _play2Func & _quitFunc & _loadFunc & _settingsFunc;   // sérialisation des éléments propres à lobjet courant
+        }
 };
 
 #endif

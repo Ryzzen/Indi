@@ -25,6 +25,12 @@ class GameManager {
     private:
         IrrManager *_irrmgr;
         MainMenu::Menu *_menu;
+
+        friend class boost::serialization::access;
+        template<class Archive>
+        void serialize(Archive &ar, const unsigned int version) {
+            ar & _irrmgr & _menu;
+        }
 };
 
 #endif /* !GAME_MANAGER */

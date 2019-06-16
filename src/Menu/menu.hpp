@@ -22,6 +22,12 @@ namespace MainMenu {
         irr::gui::IGUIButton *_play;
         irr::gui::IGUIButton *_quit;
         irr::gui::IGUIButton *_load;
+
+        friend class boost::serialization::access;
+        template<class Archive>
+        void serialize(Archive &ar, const unsigned int version) {
+            ar & _guienv & _play & _quit & _load;
+        }
     public:
 #pragma region Constructor / Destructor
         Menu(void);

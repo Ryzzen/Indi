@@ -26,6 +26,12 @@ private:
     void UntapKeys(std::vector<int> keys);
     IndiReceiver *receiver_;
     std::vector<int> keysAlreadyPressed_;
+
+    friend class boost::serialization::access;
+        template<class Archive>
+        void serialize(Archive &ar, const unsigned int version) {
+            ar & receiver_ & keysAlreadyPressed_;
+        }
 };
 
 #endif

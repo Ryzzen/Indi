@@ -69,6 +69,12 @@ namespace Game {
             {irr::KEY_SPACE, P2_PUT_BOMB}
         };
 
+        friend class boost::serialization::access;
+        template<class Archive>
+        void serialize(Archive &ar, const unsigned int version) {
+            ar & _keyMap & _keyMapReversed;
+        }
+
     public:
         bool isActionMapped(e_action action) { return (_keyMap.count(action) > 0 ? true : false); }
         bool isKeyMapped(int key) { return (_keyMapReversed.count(key) > 0 ? true : false); }

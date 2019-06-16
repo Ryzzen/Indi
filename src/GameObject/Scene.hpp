@@ -40,6 +40,12 @@ namespace Game {
 
 		void addObject(unsigned int id) { _objects.push_back(id); }
         void removeObject(unsigned int id) { _objects.remove(id); }
+    private:
+        friend class boost::serialization::access;
+        template<class Archive>
+        void serialize(Archive &ar, const unsigned int version) {
+            ar & _objects;
+        }
     };
 
     class Scene {
@@ -106,6 +112,12 @@ namespace Game {
         unsigned int _height;
 
         unsigned int getUniqueId();
+
+        friend class boost::serialization::access;
+        template<class Archive>
+        void serialize(Archive &ar, const unsigned int version) {
+            ar & _gameObjetcs & _map & _actionHandler & _width & _height;
+        }
     };
 
     extern Game::Scene scene;

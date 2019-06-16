@@ -27,6 +27,12 @@ namespace Game {
         std::clock_t _clock;
         double _timer;
         bool _isPaused;
+
+        friend class boost::serialization::access;
+        template<class Archive>
+        void serialize(Archive &ar, const unsigned int version) {
+            ar & _clock & _timer & _isPaused;
+        }
     };
 }
 
