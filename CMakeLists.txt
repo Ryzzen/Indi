@@ -6,6 +6,10 @@ set(CMAKE_AUTOMOC ON)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMakeModules")
 set(CMAKE_PATH ${CMAKE_PATH} "${CMAKE_SOURCE_DIR}/")
+set(GCC_BOOST_FLAGS  "-lboost_system -lboost_date_time -lboost_thread -lboost_serialization")
+set(CMAKE_EXE_LINKER_FLAGS  "${GCC_BOOST_FLAGS}")
+
+add_definitions(${GCC_BOOST_FLAGS})
 
 IF (MSVC)
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_PATH}/bin)
@@ -48,6 +52,7 @@ IF (Irrlicht_FOUND)
             src/GameObject/Bomberman/Bomberman.cpp
             src/Clock/clock.cpp
             src/GameObject/Bombes/bombes.cpp
+            src/Saves/Saves.cpp
             src/GameObject/Bombes/Explosion/Explosion.cpp)
 
     add_executable(

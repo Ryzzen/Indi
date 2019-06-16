@@ -26,6 +26,12 @@ namespace Game {
         Game::Clock _clock;
         void destruction();
         unsigned int _owner;
+        friend class boost::serialization::access;
+        template<class Archive>
+        void serialize(Archive & ar, const unsigned int version) {
+            ar & boost::serialization::base_object<GameObject>(*this);
+            ar & _clock & _owner;
+        }
     };
 }
 

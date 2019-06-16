@@ -63,6 +63,13 @@ namespace Game {
         void putBomb();
         void update();
 #pragma endregion
+    private:
+        friend class boost::serialization::access;
+        template<class Archive>
+        void serialize(Archive & ar, const unsigned int version) {
+            ar & boost::serialization::base_object<test>(*this);
+            ar & _bombs & _speed & _firePower & _softBlockPass;
+        }
     };
 }
 

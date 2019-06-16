@@ -44,6 +44,13 @@ namespace Game {
                 Game::Clock _clock;
 
                 void explode();
+        private:
+                friend class boost::serialization::access;
+                template<class Archive>
+                void serialize(Archive & ar, const unsigned int version) {
+                ar & boost::serialization::base_object<GameObject>(*this);
+                ar & _radius & _owner & _clock;
+        }
     };
 }
 
