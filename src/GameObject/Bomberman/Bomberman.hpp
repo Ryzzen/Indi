@@ -30,8 +30,19 @@ namespace Game {
             _firePower(firePower),
             _softBlockPass(softBlockPass)
         {
-            //Game::scene.subscribeToAction(Game::P1_MV_RIGHT, std::bind(&Game::Bomberman::moveRight, this));
-			Game::scene.subscribeToAction(Game::P1_PUT_BOMB, std::bind(&Game::Bomberman::putBomb, this));
+            if (this.type == P1) {
+                Game::scene.subscribeToAction(Game::P1_MV_RIGHT, std::bind(&Game::Bomberman::moveRight, this));
+                Game::scene.subscribeToAction(Game::P1_MV_LEFT, std::bind(&Game::Bomberman::moveRight, this));
+                Game::scene.subscribeToAction(Game::P1_MV_UP, std::bind(&Game::Bomberman::moveRight, this));
+                Game::scene.subscribeToAction(Game::P1_MV_DOWN, std::bind(&Game::Bomberman::moveRight, this));
+			    Game::scene.subscribeToAction(Game::P1_PUT_BOMB, std::bind(&Game::Bomberman::putBomb, this));
+            } else if (this.type == P2) {
+                Game::scene.subscribeToAction(Game::P2_MV_RIGHT, std::bind(&Game::Bomberman::moveRight, this));
+                Game::scene.subscribeToAction(Game::P2_MV_LEFT, std::bind(&Game::Bomberman::moveRight, this));
+                Game::scene.subscribeToAction(Game::P2_MV_UP, std::bind(&Game::Bomberman::moveRight, this));
+                Game::scene.subscribeToAction(Game::P2_MV_DOWN, std::bind(&Game::Bomberman::moveRight, this));
+			    Game::scene.subscribeToAction(Game::P2_PUT_BOMB, std::bind(&Game::Bomberman::putBomb, this));
+            }
         }
         ~Bomberman()
         {
