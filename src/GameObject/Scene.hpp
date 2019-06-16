@@ -51,11 +51,13 @@ namespace Game {
             _width = width;
             _height = height;
         }
-		~Scene()
-		{
-			for (auto &object : _gameObjetcs)
+        void cleanScene() {
+            for (auto &object : _gameObjetcs)
 				object.second.reset();
-		}
+        }
+		//~Scene()
+		//{
+		//}
 
         std::vector<std::vector<Game::Ground>> getMap() { return (_map); }
         std::vector<Game::GameObject> getGameObjects()

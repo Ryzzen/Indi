@@ -6,6 +6,9 @@
 */
 
 #include "Game/game.hpp"
+#include "GameObject/GameObject.hpp"
+#include "GameObject/Bomberman/Bomberman.hpp"
+#include "GameObject/Scene.hpp"
 
 using namespace irr;
 using namespace core;
@@ -50,5 +53,9 @@ int main()
     GameManager *my_game = new GameManager((void *)&play_1p, (void *)&play_2p, (void *)&quit, (void *)&load, (void *)&settings);
 
     my_game->launchMenuLoop();
+
+    Game::scene.addObject(std::make_unique<Game::Bomberman>(Game::P1));
+    Game::scene.takeAction(Game::P1_PUT_BOMB);
+    Game::scene.cleanScene();
     return 0;
 }
