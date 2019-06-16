@@ -78,6 +78,14 @@ namespace Game {
         virtual ~GameObject() {}
 
 		virtual void update() {}
+
+        private:
+        friend class boost::serialization::access;
+        template<class Archive>
+        void serialize(Archive & ar, const unsigned int version) {
+            ar & boost::serialization::base_object<IGameObject>(*this);    // sérialisation de la classe mère
+            ar & _type & _position & _meshPath & _texturePath & _animationState & _id;                       // sérialisation des éléments propres à lobjet courant
+        }
     };
 
 }
