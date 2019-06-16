@@ -45,15 +45,15 @@ void display_GUI(int x, int y, IGUIEnvironment* env, video::IVideoDriver* driver
 
 void FunctionCoreGUI(IGUIEnvironment* env, video::IVideoDriver* driver)
 {
-	std::vector<unsigned int> vecid = scene.getIdsByType(P1);
-	vecid += scene.getIdsByType(P2);
-	vecid += scene.getIdsByType(P3);
-	vecid += scene.getIdsByType(P4);
+	std::vector<unsigned int> vecid = Game::scene.getIdsByType(Game::P1);
+	vecid += scene.getIdsByType(Game::P2);
+	vecid += scene.getIdsByType(Game::P3);
+	vecid += scene.getIdsByType(Game::P4);
 
-    Game::Bomberman *player1 = static_cast<Bomberman*>(scene.getObjectById(vecid[0]).get());
-    Game::Bomberman *player2 = static_cast<Bomberman*>(scene.getObjectById(vecid[1]).get());
-    Game::Bomberman *player3 = static_cast<Bomberman*>(scene.getObjectById(vecid[2]).get());
-    Game::Bomberman *player4 = static_cast<Bomberman*>(scene.getObjectById(vecid[3]).get());
+    Game::Bomberman *player1 = static_cast<Bomberman*>(Game::scene.getObjectById(vecid[0]).get());
+    Game::Bomberman *player2 = static_cast<Bomberman*>(Game::scene.getObjectById(vecid[1]).get());
+    Game::Bomberman *player3 = static_cast<Bomberman*>(Game::scene.getObjectById(vecid[2]).get());
+    Game::Bomberman *player4 = static_cast<Bomberman*>(Game::scene.getObjectById(vecid[3]).get());
 
     if (player1 != NULL)
 		display_GUI(10, 10, env, driver, player1);
