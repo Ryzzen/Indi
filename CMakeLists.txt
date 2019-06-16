@@ -33,6 +33,7 @@ IF (Irrlicht_FOUND)
             src/GameObject/Bomberman/Bomberman.hpp
             src/Clock/clock.hpp
             src/GameObject/Bombes/bombes.hpp
+            src/GameObject/Walls/Walls.hpp
             src/GameObject/Bombes/Explosion/Explosion.hpp)
 
     file(GLOB

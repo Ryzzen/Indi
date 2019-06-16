@@ -8,6 +8,9 @@
 #ifndef SCENE
     #define SCENE
 
+
+#include <cstdlib>
+#include <ctime>
 #include <vector>
 #include <string>
 #include <list>

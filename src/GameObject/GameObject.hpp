@@ -34,6 +34,10 @@ namespace Game {
     constexpr auto BOMBERMAN_MESH_PATH = "texture/mesh";
     constexpr auto EXPLOSION_TXTU_PATH = "texture/path";
     constexpr auto EXPLOSION_MESH_PATH = "texture/mesh";
+    constexpr auto HARDWALL_TXTU_PATH = "texture/path";
+    constexpr auto HARDWALL_MESH_PATH = "texture/mesh";
+    constexpr auto SOFTWALL_TXTU_PATH = "texture/path";
+    constexpr auto SOFTWALL_MESH_PATH = "texture/mesh";
 
 
     enum e_animation {
